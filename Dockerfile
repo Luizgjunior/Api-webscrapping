@@ -1,5 +1,5 @@
-# Use a imagem oficial Node.js Alpine para um build leve
-FROM node:18-alpine
+# Use a imagem oficial Node.js Alpine para um build leve (versão específica estável)
+FROM node:20-alpine
 
 # Define o diretório de trabalho
 WORKDIR /app
@@ -19,6 +19,7 @@ EXPOSE 3000
 # Define variáveis de ambiente para produção
 ENV NODE_ENV=production
 ENV PORT=3000
+ENV NODE_OPTIONS="--no-deprecation --max-old-space-size=512"
 
 # Comando para iniciar a aplicação
-CMD ["node", "index.js"] 
+CMD ["node", "--no-deprecation", "index.js"] 

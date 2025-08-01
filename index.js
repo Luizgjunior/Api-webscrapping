@@ -1,8 +1,14 @@
+// Carrega polyfills para compatibilidade
+require('./fix-undici');
+
 const express = require('express');
 const axios = require('axios');
 const cheerio = require('cheerio');
 const TurndownService = require('turndown');
 const cors = require('cors');
+
+// Configuração para resolver problemas de compatibilidade
+process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
 
 const app = express();
 const PORT = process.env.PORT || 3000;
