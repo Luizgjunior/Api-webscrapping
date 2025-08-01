@@ -32,7 +32,7 @@ POST https://api-webscrapping-production-d46a.up.railway.app/convert
 ```bash
 curl -X POST https://api-webscrapping-production-d46a.up.railway.app/convert \
   -H "Content-Type: application/json" \
-  -d '{"url": "https://example.com"}'
+  -d '{"url": "https://exemplo.com"}'
 ```
 
 ### PowerShell:
