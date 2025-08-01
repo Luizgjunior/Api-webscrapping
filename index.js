@@ -124,8 +124,14 @@ app.post('/convert', async (req, res) => {
     // Extrai o conteúdo principal
     const mainContent = extractMainContent($);
     
-    // Converte para Markdown
-    const markdown = turndownService.turndown(mainContent.html() || '');
+    // Converte para Markdown com tratamento de erro
+    let markdown;
+    try {
+      markdown = turndownService.turndown(mainContent.html() || '');
+    } catch (conversionError) {
+      console.error('Erro na conversão para Markdown:', conversionError);
+      markdown = 'Erro: Não foi possível converter o conteúdo para Markdown';
+    }
     
     // Remove linhas vazias excessivas
     const cleanMarkdown = markdown
@@ -190,9 +196,40 @@ app.get('/', (req, res) => {
   });
 });
 
-// Inicia o servidor
-app.listen(PORT, () => {
+// Tratamento de erros não capturados
+process.on('uncaughtException', (err) => {
+  console.error('❌ Erro não capturado:', err);
+  process.exit(1);
+});
+
+process.on('unhandledRejection', (reason, promise) => {
+  console.error('❌ Promise rejeitada não tratada:', reason);
+  process.exit(1);
+});
+
+// Inicia o servidor (bind para 0.0.0.0 para funcionar no Railway)
+const server = app.listen(PORT, '0.0.0.0', () => {
   console.log(`🚀 Servidor rodando na porta ${PORT}`);
   console.log(`📝 Acesse http://localhost:${PORT} para ver informações da API`);
   console.log(`🔗 Use POST /convert para converter URLs em Markdown`);
+}).on('error', (err) => {
+  console.error('❌ Erro ao iniciar servidor:', err);
+  process.exit(1);
+});
+
+// Graceful shutdown
+process.on('SIGTERM', () => {
+  console.log('📴 Recebido SIGTERM, fechando servidor...');
+  server.close(() => {
+    console.log('✅ Servidor fechado graciosamente');
+    process.exit(0);
+  });
+});
+
+process.on('SIGINT', () => {
+  console.log('📴 Recebido SIGINT, fechando servidor...');
+  server.close(() => {
+    console.log('✅ Servidor fechado graciosamente');
+    process.exit(0);
+  });
 }); 
