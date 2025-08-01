@@ -1,0 +1,23 @@
+{
+  "name": "api-webscaping",
+  "version": "1.0.0",
+  "description": "API REST para converter conteúdo de sites em Markdown",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "node index.js"
+  },
+  "keywords": ["api", "webscraping", "markdown", "node", "express"],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2",
+    "axios": "^1.6.0",
+    "cheerio": "^1.0.0-rc.12",
+    "turndown": "^7.1.2",
+    "cors": "^2.8.5"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+} 
