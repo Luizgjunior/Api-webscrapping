@@ -172,7 +172,7 @@ app.post('/convert', async (req, res) => {
 app.get('/health', (req, res) => {
   res.json({ 
     status: 'OK', 
-    message: 'API de Web Scraping funcionando',
+    message: 'API de Extração de Conteúdos funcionando',
     timestamp: new Date().toISOString()
   });
 });
@@ -180,10 +180,11 @@ app.get('/health', (req, res) => {
 // Endpoint de informações da API
 app.get('/', (req, res) => {
   res.json({
-    name: 'API Web Scraping para Markdown',
+    name: 'API de Extração de Conteúdos Web',
     version: '1.0.0',
+    description: 'Extrai conteúdo limpo de qualquer site e converte para Markdown',
     endpoints: {
-      'POST /convert': 'Converte conteúdo de uma URL para Markdown',
+      'POST /convert': 'Extração de Conteúdos - Remove scripts, anúncios e extrai texto principal',
       'GET /health': 'Verifica status da API',
       'GET /': 'Informações da API'
     },
@@ -191,7 +192,7 @@ app.get('/', (req, res) => {
       method: 'POST',
       url: '/convert',
       body: { url: 'https://exemplo.com' },
-      response: 'Conteúdo em Markdown'
+      response: 'Conteúdo extraído em formato Markdown'
     }
   });
 });

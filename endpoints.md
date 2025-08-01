@@ -14,7 +14,7 @@ GET https://api-webscrapping-production-d46a.up.railway.app/health
 GET https://api-webscrapping-production-d46a.up.railway.app/
 ```
 
-### 3. Converter URL para Markdown (Principal)
+### 3. Extração de Conteúdos (Principal)
 ```
 POST https://api-webscrapping-production-d46a.up.railway.app/convert
 ```

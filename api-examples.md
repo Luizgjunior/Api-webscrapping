@@ -1,4 +1,4 @@
-# 🌐 API Web Scraping - Exemplos de Uso em Produção
+# 🌐 API de Extração de Conteúdos Web - Exemplos de Uso em Produção
 
 **URL de Produção:** `https://api-webscrapping-production-d46a.up.railway.app`
 
@@ -26,10 +26,11 @@ curl https://api-webscrapping-production-d46a.up.railway.app/
 **Resposta:**
 ```json
 {
-  "name": "API Web Scraping para Markdown",
+  "name": "API de Extração de Conteúdos Web",
   "version": "1.0.0",
+  "description": "Extrai conteúdo limpo de qualquer site e converte para Markdown",
   "endpoints": {
-    "POST /convert": "Converte conteúdo de uma URL para Markdown",
+    "POST /convert": "Extração de Conteúdos - Remove scripts, anúncios e extrai texto principal",
     "GET /health": "Verifica status da API",
     "GET /": "Informações da API"
   },
@@ -37,12 +38,12 @@ curl https://api-webscrapping-production-d46a.up.railway.app/
     "method": "POST",
     "url": "/convert",
     "body": { "url": "https://exemplo.com" },
-    "response": "Conteúdo em Markdown"
+    "response": "Conteúdo extraído em formato Markdown"
   }
 }
 ```
 
-### 3. **Conversão de URL para Markdown** ⭐
+### 3. **Extração de Conteúdos** ⭐
 
 #### Exemplo com cURL:
 ```bash

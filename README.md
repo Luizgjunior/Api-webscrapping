@@ -1,15 +1,15 @@
-# 🕷️ API Web Scraping para Markdown
+# 🕷️ API de Extração de Conteúdos Web
 
-API REST que converte conteúdo de qualquer site em formato **Markdown**, extraindo apenas o conteúdo útil e ignorando menus, rodapés, scripts e anúncios.
+API REST para **extração de conteúdos** de qualquer site, convertendo para formato **Markdown**. Remove automaticamente menus, rodapés, scripts, anúncios e extrai apenas o conteúdo útil.
 
 ## 🚀 Funcionalidades
 
-- ✅ Endpoint `POST /convert` que recebe uma URL e retorna conteúdo em Markdown
-- ✅ Remove automaticamente scripts, estilos, navegação e anúncios
-- ✅ Extrai apenas o conteúdo principal da página
-- ✅ Otimizado para deploy no Railway
-- ✅ Build leve com Docker Alpine
-- ✅ Health check integrado
+- ✅ **Extração de Conteúdos**: Endpoint `POST /convert` que extrai conteúdo limpo de qualquer URL
+- ✅ **Limpeza Automática**: Remove scripts, estilos, navegação, anúncios e elementos irrelevantes
+- ✅ **Conteúdo Principal**: Identifica e extrai apenas o texto principal da página
+- ✅ **Formato Markdown**: Converte o conteúdo extraído para Markdown limpo e estruturado
+- ✅ **Deploy Otimizado**: Pronto para Railway com Docker Alpine
+- ✅ **Monitoramento**: Health check integrado
 
 ## 🛠️ Stack Tecnológica
 

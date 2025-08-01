@@ -1,7 +1,7 @@
 {
-  "name": "api-webscaping",
+  "name": "api-extracao-conteudos",
   "version": "1.0.0",
-  "description": "API REST para converter conteúdo de sites em Markdown",
+  "description": "API REST para extração de conteúdos web e conversão para Markdown",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
